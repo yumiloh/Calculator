@@ -6,31 +6,32 @@ namespace Calculator
 {
     class Calculator
     {
-        public double Number1 { get; set; }
-        public double Number2 { get; set; }
+        public delegate double CalculatorDelegate(double number1, double number2);
 
-        public double Add()
+        CalculatorDelegate calculatorDelegate = null;
+
+        public double Add(double number1, double number2)
         {
-            return Number1 + Number2;
+            return number1 + number2;
         }
 
-        public double Subtract()
+        public double Subtract(double number1, double number2)
         {
-            return Number1 - Number2;
+            return number1 - number2;
         }
 
-        public double Multiply()
+        public double Multiply(double number1, double number2)
         {
-            return Number1 * Number2;
+            return number1 * number2;
         }
         
-        public double Divide()
+        public double Divide(double number1, double number2)
         {
-            if (Number2 == 0)
+            if (number2 == 0)
             {
                 throw new DivideByZeroException();
             }
-            return Number1 / Number2;
+            return number1 / number2;
         }
     }
 }
