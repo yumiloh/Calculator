@@ -8,7 +8,33 @@ namespace Calculator
     {
         public delegate double CalculatorDelegate(double number1, double number2);
 
-        CalculatorDelegate calculatorDelegate = null;
+        public CalculatorDelegate calculatorDelegate = null;
+
+        public CalculatorDelegate GetDelegateRef(int option)
+        {
+            if (option == 1)
+            {
+                calculatorDelegate = Add;
+            }
+            else if (option == 2)
+            {
+                calculatorDelegate = Subtract;
+            }
+            else if (option == 3)
+            {
+                calculatorDelegate = Multiply;
+            }
+            else if (option == 4)
+            {
+                calculatorDelegate = Divide;
+            }
+            else
+            {
+                Console.WriteLine("Error Input");
+            }
+            //string result = calculatorDelegate.ToString();
+            return calculatorDelegate;
+        }
 
         public double Add(double number1, double number2)
         {

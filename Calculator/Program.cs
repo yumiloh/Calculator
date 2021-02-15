@@ -16,26 +16,8 @@ namespace Calculator
             Console.WriteLine("Enter second number");
             number2 = Convert.ToDouble(Console.ReadLine());
 
-            if (option == 1)
-            {
-                Console.WriteLine($"Result: {Calculator.Add(number1, number2)}");
-            }
-            else if (option == 2)
-            {
-                Console.WriteLine($"Result: {Calculator.Subtract(number1, number2)}");
-            }
-            else if (option == 3)
-            {
-                Console.WriteLine($"Result: {Calculator.Multiply(number1, number2)}");
-            }
-            else if (option == 4)
-            {
-                Console.WriteLine($"Result: {Calculator.Divide(number1, number2)}");
-            }
-            else
-            {
-                Console.WriteLine("Error Input");
-            }
+            Calculator.calculatorDelegate = Calculator.GetDelegateRef(option);
+            Console.WriteLine($"Result: {Calculator.calculatorDelegate(number1, number2)}");
         }
     }
 }
